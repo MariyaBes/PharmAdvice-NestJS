@@ -9,6 +9,7 @@ export class AuthController {
 
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
+  // @CurrentUser()
   @Post('login')
   async login(@Body() dto: AuthDto) {
     return this.authService.login(dto);
