@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Chat {
-  chat_id    Int        @id
+  chat_id    Int        @id @default(autoincrement())
   data_start DateTime   @db.Time(6)
   data_send  DateTime[] @db.Time
   text       String     @db.VarChar(128)
@@ -16,7 +16,7 @@ model Chat {
 }
 
 model Consultation {
-  consultation_id Int      @id
+  consultation_id Int      @id @default(autoincrement())
   date_time       DateTime @db.Timestamptz(6)
   amount          Int?
   meeting_link    Json?    @db.Json
@@ -24,7 +24,7 @@ model Consultation {
 }
 
 model Image {
-  image_id        Int     @id
+  image_id        Int     @id @default(autoincrement())
   profile_picture String? @db.VarChar(400)
   profile_pharm_  String  @map("profile_pharm ") @db.VarChar(400)
   image_med       String? @db.VarChar(400)
@@ -37,14 +37,14 @@ model ListRecipe {
 }
 
 model Marking {
-  marking_id         Int    @id
+  marking_id         Int    @id @default(autoincrement())
   dose_              String @map("dose ") @db.VarChar(45)
   side_effects_      String @map("side_effects ") @db.VarChar(45)
   contraindications_ String @map("contraindications ") @db.VarChar(200)
 }
 
 model Medication {
-  medication_id_ Int      @id @map("medication_id ")
+  medication_id_ Int      @id @default(autoincrement()) @map("medication_id ")
   name           String   @db.VarChar(150)
   data_storage_  DateTime @map("data_storage ") @db.Date
   composition    String   @db.VarChar(500)
@@ -53,7 +53,7 @@ model Medication {
 }
 
 model Pharmacist {
-  harmacist_id  Int    @id @map("рharmacist_id")
+  harmacist_id  Int    @id @default(autoincrement()) @map("рharmacist_id")
   full_name     String @db.VarBit(100)
   gender        String @db.VarChar(10)
   qualification String @db.VarChar(200)
@@ -64,13 +64,13 @@ model Pharmacist {
 }
 
 model Pharmacy {
-  pharmacy_id Int    @id
+  pharmacy_id Int    @id @default(autoincrement())
   name        String @db.VarChar(150)
   address     String @db.VarChar(150)
 }
 
 model Recipe {
-  recipe_id      Int      @id
+  recipe_id      Int      @id @default(autoincrement())
   date_discharge DateTime @db.Date
   dose           String   @db.VarChar(50)
   suitability_   DateTime @map("suitability ") @db.Date
@@ -79,12 +79,17 @@ model Recipe {
 }
 
 model User {
-  user_id   Int      @id
-  full_name String   @db.VarChar(100)
-  gender    String   @db.VarChar(10)
-  email     String   @db.VarChar(125)
-  password  Int
-  address   String?  @db.VarChar(125)
-  phone_num String   @db.VarChar(12)
-  age       DateTime @db.Date
+  user_id   Int       @id @default(autoincrement())
+  gender    String?   @db.VarChar(10)
+  email     String    @unique @db.VarChar(125)
+  password  String
+  address   String?   @db.VarChar(125)
+  phone_num String    @default("")
+  age       DateTime? @db.Date
+  name      String    @unique @db.VarChar(100)
+
+  avatarPath String @default("https://images.freeimages.com/images/large-previews/023/geek-avatar-1632962.jpg") @map("avatar_path")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 }
