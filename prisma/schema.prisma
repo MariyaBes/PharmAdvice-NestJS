@@ -55,6 +55,7 @@ model Marking {
 model Medication {
   medication_id_ Int      @id @default(autoincrement()) @map("medication_id ")
   name           String   @unique @db.VarChar(150)
+  slug           String   @unique
   data_storage_  DateTime @map("data_storage ") @db.Date
   composition    String   @db.VarChar(500)
   application_   String   @map("application ") @db.VarChar(500)
