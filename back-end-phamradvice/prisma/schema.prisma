@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Chat {
+  chat_id     Int    @id @default(autoincrement())
+  // data_start  DateTime   @db.Time(6)
+  // data_send   DateTime[] @db.Time
+  text        String @db.VarChar(128)
+  status      String @db.VarChar(15)
+  User        User?  @relation(fields: [userUser_id], references: [user_id])
+  userUser_id Int?
+
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  messages   Message[]
+  pharmacist Pharmacist[]
+}
+
+model Message {
+  message_id Int @id @default(autoincrement())
+
+  content   String
+  imageURL  String?
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Chat        Chat? @relation(fields: [chatChat_id], references: [chat_id])
+  chatChat_id Int?
+  User        User? @relation(fields: [userUser_id], references: [user_id])
+  userUser_id Int?
+}
+
+model ListMedication {
+  listrecipe_id Int      @id
+  assigment     String   @db.VarChar(200)
+  data          DateTime @db.Date
+
+  medication Medication[]
+}
+
+model Marking {
+  marking_id         Int    @id @default(autoincrement())
+  dose_              String @map("dose ") @db.VarChar(45)
+  side_effects_      String @map("side_effects ") @db.VarChar(45)
+  contraindications_ String @map("contraindications ") @db.VarChar(200)
+}
+
+model Medication {
+  medication_id_ Int      @id @default(autoincrement()) @map("medication_id ")
+  name           String   @unique @db.VarChar(150)
+  slug           String   @unique
+  data_storage_  DateTime @map("data_storage ") @db.Date
+  composition    String   @db.VarChar(500)
+  application_   String   @map("application ") @db.VarChar(500)
+  status         String   @db.VarChar(20)
+  price          Float
+  images         String[]
+
+  User                        User?           @relation(fields: [userUser_id], references: [user_id])
+  userUser_id                 Int?
+  ListMedication              ListMedication? @relation(fields: [listMedicationListrecipe_id], references: [listrecipe_id])
+  listMedicationListrecipe_id Int?
+
+  pharmacy Pharmacy[]
+}
+
+model Pharmacist {
+  pharmacist_id Int    @id @default(autoincrement()) @map("рharmacist_id")
+  full_name     String @db.VarBit(100)
+  gender        String @db.VarChar(10)
+  qualification String @db.VarChar(200)
+  email         String @db.VarChar(125)
+  password      String
+  contact       String @db.VarChar(50)
+  raiting       Float?
+
+  Chat        Chat?      @relation(fields: [chatChat_id], references: [chat_id])
+  chatChat_id Int?
+  pharmacy    Pharmacy[]
+}
+
+model Pharmacy {
+  pharmacy_id Int    @id @default(autoincrement())
+  name        String @db.VarChar(150)
+  address     String @db.VarChar(150)
+
+  Medication               Medication? @relation(fields: [medicationMedication_id_], references: [medication_id_])
+  medicationMedication_id_ Int?
+  Pharmacist               Pharmacist? @relation(fields: [pharmacistPharmacist_id], references: [pharmacist_id])
+  pharmacistPharmacist_id  Int?
+}
+
+model User {
+  user_id   Int       @id @default(autoincrement())
+  gender    String?   @db.VarChar(10)
+  email     String    @unique @db.VarChar(125)
+  password  String
+  address   String?   @db.VarChar(125)
+  phone_num String    @default("")
+  age       DateTime? @db.Date
+  name      String    @unique @db.VarChar(100)
+
+  avatarPath String @default("https://images.freeimages.com/images/large-previews/023/geek-avatar-1632962.jpg") @map("avatar_path")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  chat     Chat[]
+  favorite Medication[]
+  messages Message[]
+}
