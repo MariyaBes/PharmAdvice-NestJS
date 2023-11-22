@@ -1,5 +1,5 @@
-import './globals.css'
-import { Prompt } from 'next/font/google'
+import '../assets/style/globals.css';
+import { Prompt } from 'next/font/google';
 import React from "react";
 
 const prompt = Prompt({
@@ -8,17 +8,14 @@ const prompt = Prompt({
 })
 
 export const metadata = {
-	title: 'PharmAdvice - регистрация',
+	title: 'Фармацевты',
 }
 
 export default function RootLayout({
-																		 children
-																	 }: {
-	children: React.ReactNode
-}) {
+																		 children,
+																	 }) {
 	return (
 		<html lang="en">
-
 		<body className={prompt.className}>{children}</body>
 		</html>
 	)
