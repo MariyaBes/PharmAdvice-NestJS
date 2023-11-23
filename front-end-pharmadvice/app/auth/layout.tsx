@@ -1,6 +1,7 @@
 // app/auth/layout.tsx
 import React, { ReactNode } from 'react'
 import { Prompt } from 'next/font/google';
+import ToasterContext from '@/app/context/ToasterContext'
 
 interface AuthLayoutProps {
 	children: ReactNode;
@@ -15,7 +16,8 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
 	return (
 		<html lang="en">
 		<body className={prompt.className}>
-		<main>{children}</main>
+		<ToasterContext />
+		{children}
 		</body>
 		</html>
 	);

@@ -1,4 +1,4 @@
-import { createAction, createAsyncThunk } from '@reduxjs/toolkit'
+import { createAsyncThunk } from '@reduxjs/toolkit'
 import { IAuthResponse, IEmailPassword } from '@/app/store/user/user.interface'
 import { AuthService } from '@/app/service/auth/auth.service'
 import { errorCatch } from '@/app/api/api.helper'
@@ -9,9 +9,7 @@ export const register = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	'auth/register',
 	async (data, thunkApi) => {
 		try {
-			const response = await AuthService.main('register', data)
-
-			return response
+			return await AuthService.main('register', data)
 		} catch (error) {
 			return thunkApi.rejectWithValue(error)
 		}
@@ -23,9 +21,7 @@ export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	'auth/login',
 	async (data, thunkApi) => {
 		try {
-			const response = await AuthService.main('login', data)
-
-			return response
+			return await AuthService.main('login', data)
 		} catch (error) {
 			return thunkApi.rejectWithValue(error)
 		}

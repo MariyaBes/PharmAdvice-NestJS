@@ -16,7 +16,7 @@ interface RootLayoutProps {
 
 export const metadata: Metadata = {
   title: 'PharmAdvice',
-  description: 'Онлайн-консультация',
+  description: 'Сервис для онлайн-консультаций с фармацевтом',
 };
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {

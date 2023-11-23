@@ -4,12 +4,5 @@ export interface IUser {
 	avatarPath: string;
 	name: string;
 	phone_num: string;
+	isAdmin?: boolean;
 }
-
-// export {
-// 	IUser,
-// 	Chat,
-// 	Message,
-// 	Medication,
-// 	Pharmacy
-// }

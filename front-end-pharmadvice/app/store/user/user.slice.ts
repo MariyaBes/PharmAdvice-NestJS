@@ -1,7 +1,6 @@
-import { IInitialState } from '@/app/store/user/user.interface'
+import { IInitialState, IUserState } from '@/app/store/user/user.interface'
 import { createSlice } from '@reduxjs/toolkit'
 import { checkAuth, login, logout, register } from '@/app/store/user/user.action'
-import { state } from 'sucrase/dist/types/parser/traverser/base'
 
 const initialState: IInitialState = {
 	// Инициализация состояния, пытаемся получить пользователя из локального хранилища
@@ -20,7 +19,7 @@ export const userSlice = createSlice({
 			})
 			.addCase(register.fulfilled, (state, { payload }) => {
 				state.isLoading = false; // Сброс флага загрузки при успешной регистрации.
-				state.user = payload.user; // Обновление информации о пользователе.
+				state.user = payload.user as IUserState; // Обновление информации о пользователе.
 			})
 			.addCase(register.rejected, state => {
 				state.isLoading = false; // Сброс флага загрузки при неудачной регистрации.
@@ -31,7 +30,7 @@ export const userSlice = createSlice({
 			})
 			.addCase(login.fulfilled, (state, { payload }) => {
 				state.isLoading = false;
-				state.user = payload.user;
+				state.user = payload.user as IUserState;
 			})
 			.addCase(login.rejected, state => {
 				state.isLoading = false;
@@ -42,7 +41,7 @@ export const userSlice = createSlice({
 				state.user = null; // Очистка информации о пользователе при выходе.
 			})
 			.addCase(checkAuth.fulfilled, (state, { payload }) => {
-				state.user = payload.user; // Обновление информации о пользователе при успешной проверке аутентификации.
+				state.user = payload.user as IUserState; // Обновление информации о пользователе при успешной проверке аутентификации.
 			})
 	}
 })
