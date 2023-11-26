@@ -1,10 +1,12 @@
+'use client'
 import { IInitialState, IUserState } from '@/app/store/user/user.interface'
 import { createSlice } from '@reduxjs/toolkit'
 import { checkAuth, login, logout, register } from '@/app/store/user/user.action'
+import { getLocalStorage } from '@/app/utils/localStorage'
 
 const initialState: IInitialState = {
 	// Инициализация состояния, пытаемся получить пользователя из локального хранилища
-	user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') as string) : null,
+	user: getLocalStorage('user'),
 	isLoading: false // Флаг загрузки данных
 }
 

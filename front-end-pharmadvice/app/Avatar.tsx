@@ -13,13 +13,13 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
 		<>
 			<div className="flex image">
 				<div className="h-[30px] w-[30px] md:block ml-auto mr-auto">
+					<Image
+						fill
+						src={user?.avatarPath || '/images/placeholder.jpg'}
+						alt="Avatar"
+						className="rounded-full"
+					/>
 				</div>
-				<Image
-					fill
-					src={user?.avatarPath || '/images/placeholder.jpg'}
-					alt="Avatar"
-					className="rounded-full"
-				/>
 			</div>
 		</>
 	);

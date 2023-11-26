@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Image from 'next/image'
 import ButtonMain from './component/buttons/ButtonMain'
 import RootLayout from '@/app/layout'
+import { Metadata } from 'next'
+import Navbar from '@/app/component/navbar/Navbar'
+import Footer from '@/app/component/footer/Footer'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Главная | PharmAdvice',
+  description: 'Сервис для онлайн-консультаций с фармацевтом',
+};
+
+
+const Home = () => {
   return (
-    <RootLayout>
+    <>
+      <Navbar />
       <div className='flex flex-col max-w-full mx-auto xl:px-[365px] md:px-10 sm:px-2 px-4 min-h-full'>
 
         {/* ОПИСАНИЕ И СЛОГАН */}
@@ -149,7 +159,7 @@ export default function Home() {
                 className='flex m-auto'
                 height='120'
                 width='120'
-                src='/images/Anal.svg'
+                src='/images/Analitic.svg'
               />
               <p className='text-lg font-semibold tracking-widest text-[#333333] m-auto'>Умерова Аминна</p>
               <p className='font-["Lato"] text-base font-medium tracking-wide text-[#646464] m-auto'>Аналитик, дизайнер</p>
@@ -172,6 +182,10 @@ export default function Home() {
         </div>
 
       </div>
-    </RootLayout>
+      <Footer />
+    </>
+
   )
 }
+
+export default Home;

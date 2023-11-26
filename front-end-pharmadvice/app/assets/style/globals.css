@@ -5,6 +5,7 @@
 body{
   @apply text-base text-black;
   overflow-x: hidden;
+  height: 100vh;
 }
 
 .navbar {

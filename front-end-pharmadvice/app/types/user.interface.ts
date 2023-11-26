@@ -1,8 +1,8 @@
 export interface IUser {
 	user_id: number;
 	email: string;
-	avatarPath: string;
+	avatarPath?: string;
 	name: string;
-	phone_num: string;
+	phone_num?: string;
 	isAdmin?: boolean;
 }

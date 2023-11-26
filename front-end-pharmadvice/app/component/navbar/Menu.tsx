@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from "next/image"
+import Link from 'next/link'
 
 const Menu = () => {
 	return (
@@ -20,7 +21,9 @@ const Menu = () => {
 				width="1"
 				src="/images/palka.svg"
 			/>
-			<a className="text-[14px] cursor-pointer border-b-2 border-transparent hover:border-[#6B4EE6] tracking-wide transition duration-500 ease-in-out">Фармацевты</a>
+			<Link href={'/pharmacist'}>
+				<p className="text-[14px] cursor-pointer border-b-2 border-transparent hover:border-[#6B4EE6] tracking-wide transition duration-500 ease-in-out">Фармацевты</p>
+			</Link>
 			<Image
 				alt="Palka"
 				className="hidden md:block ml-[30px] mr-[30px]"

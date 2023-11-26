@@ -1,3 +1,4 @@
+
 import Link from 'next/link'
 import Logo from '@/app/component/navbar/Logo'
 import Menu from '@/app/component/navbar/Menu'
@@ -28,9 +29,7 @@ const Navbar = () => {
 							</Link>
 						</div>
 
-
 					</div>
-
 				</Container>
 			</div>
 		</div>

@@ -1,21 +1,18 @@
 import Logo from './components/Logo'
 import React from 'react'
-import { Metadata } from 'next'
 import Image from 'next/image'
 import AuthForm from '@/app/auth/components/AuthForm'
-import AuthLayout from '@/app/auth/layout'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = ({
-	title: 'PharmAdvice - регистрация',
+	title: 'Авторизация | PharmAdvice',
 	description: 'Авторизация/регистрация',
 } as const);
 
-const AuthPage: React.FC = () => {
+const AuthPage = () => {
 	return (
-		<AuthLayout>
 			<div className='flex flex-col w-full h-full bg-[#E1DCFA] overflow-hidden'>
 				<Logo/>
-
 
 				<Image
 					alt='Back'
@@ -26,7 +23,6 @@ const AuthPage: React.FC = () => {
 
 				<AuthForm />
 			</div>
-		</AuthLayout>
 	)
 }
 

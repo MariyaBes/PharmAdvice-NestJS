@@ -17,6 +17,7 @@ export interface IInitialState {
 }
 
 export interface IEmailPassword {
+	name: string
 	email: string
 	password: string
 }
