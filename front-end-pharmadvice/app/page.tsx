@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import Image from 'next/image'
 import ButtonMain from './component/buttons/ButtonMain'
-import RootLayout from '@/app/layout'
 import { Metadata } from 'next'
 import Navbar from '@/app/component/navbar/Navbar'
 import Footer from '@/app/component/footer/Footer'
@@ -20,7 +19,7 @@ const Home = () => {
 
         {/* ОПИСАНИЕ И СЛОГАН */}
 
-        <div className="flex flex-row items-center justify-between gap-3 md:gap-0 mt-[88px]">
+        <div className="flex flex-row items-center justify-between gap-3 md:gap-0 mt-24">
           <Image
             alt="Five"
             className="hidden md:block z-20"
