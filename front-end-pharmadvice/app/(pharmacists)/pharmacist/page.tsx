@@ -1,16 +1,37 @@
 import Footer from '@/app/component/footer/Footer'
-import React from 'react'
+import React, { FC } from 'react'
 import Navbar from '@/app/component/navbar/Navbar'
 import { Metadata } from 'next'
 import Search from '@/app/(pharmacists)/pharmacist/components/Search'
 import CartPharmacist from '@/app/(pharmacists)/pharmacist/components/CartPharmacist'
+import { IPharmacist } from '@/app/types/pharmacist.interface'
 
 export const metadata: Metadata = ({
 	title: 'Фармацевты | PharmAdvice',
-	description: 'Авторизация/регистрация',
+	description: 'Список фармацевтов',
 } as const);
 
-const Pharmacist = () => {
+interface IPharmacistProps extends IPharmacist{
+	full_name: string,
+	email: string,
+	pharmacist_id: number,
+	qualification?: string,
+	contact?: string,
+	raiting?: number
+}
+
+const Pharmacist: FC<IPharmacistProps> = (
+	{
+		full_name,
+		email,
+		pharmacist_id,
+		qualification,
+		contact,
+		password,
+		raiting
+	}
+) => {
+	console.log("Props in CartPharmacist:", full_name, email, pharmacist_id, qualification, contact, raiting);
 	return (
 		<>
 			<Navbar/>
@@ -19,10 +40,8 @@ const Pharmacist = () => {
 
 				<Search />
 
-				<CartPharmacist />
-				<CartPharmacist />
-				<CartPharmacist />
-				<CartPharmacist />
+				<CartPharmacist full_name={full_name} email={email} pharmacist_id={pharmacist_id} qualification={qualification} contact={contact} raiting={raiting} password={password}/>
+				<CartPharmacist full_name={full_name} email={email} pharmacist_id={pharmacist_id} qualification={qualification} contact={contact} raiting={raiting} password={password}/>
 
 			</div>
 

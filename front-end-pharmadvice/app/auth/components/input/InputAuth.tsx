@@ -6,7 +6,14 @@ import cn from 'clsx'
 
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-	({ placeholder, error, className, type = 'text', style, ...rest }, ref
+	({
+		 placeholder,
+		 error,
+		 className,
+		 type = 'text',
+		 style,
+		 ...rest
+	 }, ref
 ) => {
 	return (
 		<div className={cn('', className)} style={style}>

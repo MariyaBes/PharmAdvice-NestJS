@@ -18,16 +18,20 @@ const Navbar = () => {
 
 			<div className="py-3 border-b-[1px] border-[#9A9A9A] border-opacity-75">
 				<Container>
-					<div className="flex flex-row items-center justify-between gap-3 md:gap-0">
+					<div className="flex flex-row items-center justify-between gap-3">
 						<Logo/>
 
 						<Menu/>
-						<Notification/>
-						<div className="relative h-[30px] w-[30px] md:block">
-							<Link href='/auth'>
-								<Avatar/>
-							</Link>
+
+						<div className='inline-flex gap-4 justify-center ml-auto'>
+							<Notification/>
+
+								<Link href='/auth'>
+										<Avatar/>
+								</Link>
+
 						</div>
+
 
 					</div>
 				</Container>

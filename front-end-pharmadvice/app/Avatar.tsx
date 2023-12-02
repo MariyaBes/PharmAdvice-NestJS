@@ -3,25 +3,50 @@
 import Image from "next/image";
 import React from 'react';
 import { IUser } from './types/user.interface';
+import { useAuth } from '@/app/hooks/useAuth'
+import { useActions } from '@/app/hooks/useActions'
 
 interface AvatarProps {
-	user?: IUser;
+	userAvatar?: IUser;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ user }) => {
+const Avatar: React.FC<AvatarProps> = ({
+	userAvatar,
+}) => {
+	const { user } = useAuth()
+
+	const { logout } = useActions()
+
 	return (
-		<>
-			<div className="flex image">
-				<div className="h-[30px] w-[30px] md:block ml-auto mr-auto">
+		<div className="flex items-center">
+			{user ? (
+				<div className='flex gap-4'>
 					<Image
-						fill
-						src={user?.avatarPath || '/images/placeholder.jpg'}
+						height={'30'}
+						width={'30'}
+						src={userAvatar?.avatarPath || '/images/placeholder.jpg'}
 						alt="Avatar"
-						className="rounded-full"
+						className=" rounded-full"
+					/>
+					<Image
+						src={'/images/logout.svg'}
+						alt="Logout"
+						height={'30'}
+						width={'30'}
+						className="rounded-full cursor-pointer"
+						onClick={logout}
 					/>
 				</div>
-			</div>
-		</>
+			) : (
+				<Image
+					src={'/images/usersquare.svg'}
+					height={'30'}
+					width={'30'}
+					alt="Placeholder"
+					className="rounded-full"
+				/>
+			)}
+		</div>
 	);
 }
 

@@ -29,21 +29,21 @@ const AuthForm = () => {
 		mode: 'onChange'
 	})
 
-	const onSubmit:SubmitHandler<IEmailPassword> = (data) => {
-		if (type === 'login') {
-			login(data)
-		} else {
-			register(data)
-		}
+	const onSubmit: SubmitHandler<IEmailPassword> = async (data, event) => {
+			if (type === 'login') {
+				login(data)
+			} else {
+				register(data)
+			}
 
-		if (rememberMe) {
-			localStorage.setItem('rememberMe', 'true')
-		} else {
-			localStorage.removeItem('rememberMe')
-		}
+			if (rememberMe) {
+				localStorage.setItem('rememberMe', 'true');
+			} else {
+				localStorage.removeItem('rememberMe');
+			}
 
-		reset()
-	}
+			reset();
+	};
 
 	const handleRememberMeChange = (isChecked: boolean) => {
 		setRememberMe(isChecked)

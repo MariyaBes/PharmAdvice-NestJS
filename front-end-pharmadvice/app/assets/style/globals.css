@@ -100,7 +100,7 @@ body{
   gap: 10px;
 
   color: white;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-size: 26px;
   font-style: normal;
   font-weight: 700;
@@ -149,7 +149,7 @@ body{
 
   color: #979797;
   text-align: center;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -205,7 +205,7 @@ body{
 
 .cart-container-information__name--text {
   color: #444752;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -221,7 +221,7 @@ body{
 
 .cart-container-information__info--text {
   color: #979797;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -231,7 +231,7 @@ body{
 .cart-container-information__info--text-purple {
   align-self: stretch;
   color: #8640F9;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -256,7 +256,7 @@ body{
 
   color: rgba(134, 64, 249, 0.50);
   text-align: center;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -299,7 +299,7 @@ body{
 
 .cart-container-information__down-event__raiting-likes--number {
   color: #8640F9;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-size: 19px;
   font-style: normal;
   font-weight: 600;
@@ -327,16 +327,22 @@ body{
   gap: 10px;
 
   border-radius: 10px;
+  border: 3px solid transparent;
   background: #ED6C6C;
 
   color: #FFF;
   text-align: center;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
   letter-spacing: 2px;
+}
+
+.cart-container-information__down-event__action--button:hover {
+  transition: all ease-in-out 0.2s;
+  background: #e32222;
 }
 
 .cart-container-information__down-event__action-more {
@@ -347,12 +353,863 @@ body{
 }
 
 .cart-container-information__down-event__action-more--text {
+  padding: 5px 12px;
+  cursor: pointer;
   color: #8640F9;
   text-align: center;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 2px;
+  border: 3px solid transparent;
+  border-radius: 10px;
+}
+
+.cart-container-information__down-event__action-more--text:hover {
+  border-color: #8640F9;
+  transition: all ease-in-out 0.2s;
+}
+
+
+
+/*КОНТЕЙНЕР С ЛИЧНОЙ КАРТОЧКОЙ ФАРМАЦЕВТА*/
+
+
+.phamr-content {
+  display: flex;
+  width: 100%;
+  padding: 25px 30px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 120px;
+  margin-bottom: 40px;
+
+  border-radius: 30px;
+  border: 1px solid #f1f5f9;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.phamr-content__photo {
+  display: flex;
+  width: 269px;
+  height: 307px;
+  align-items: flex-start;
+  flex-shrink: 0;
+
+  border-radius: 10px;
+  background: url(http://proforientir42.ru/wp-content/uploads/2017/09/rezyume-farmacevta.jpg) lightgray 50% / 420px 307px no-repeat;
+}
+
+.phamr-content__cart-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+  flex: 1 0 0;
+}
+
+.phamr-content__cart-info__information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  align-self: stretch;
+}
+
+.phamr-content__cart-info__information-name {
+  display: flex;
+  height: 43.5px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.phamr-content__cart-info__information-name--text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  align-self: stretch;
+
+  color: #444752;
+  font-family: Lato, sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 161.2%; /* 58.032px */
+  letter-spacing: 4.86px;
+}
+
+.phamr-content__cart-info__information--line {
+  width: 821px;
+  height: 1px;
+  background: #DADADA;
+}
+
+.phamr-content__cart-info__information-speciality {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  align-self: stretch;
+}
+
+.phamr-content__cart-info__information-speciality--text {
+  align-self: stretch;
+
+  color: #444752;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 161.2%; /* 32.24px */
+  letter-spacing: 2.7px;
+}
+
+.phamr-content__cart-info__information-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.phamr-content__cart-info__information-contact--text {
+  color: #444752;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2.7px;
+}
+
+.phamr-content__cart-info__information-contact--text-purp {
+  color: #8640F9;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2.7px;
+}
+
+.phamr-content__cart-info__active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.phamr-content__cart-info__active-event {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.phamr-content__cart-info__active-event--icons {
+  display: flex;
+  align-items: flex-start;
+  gap: 35px;
+}
+
+.pharm-information {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.pharm-information__text {
+  display: flex;
+  width: 1190px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.pharm-information__text-decs {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  align-self: stretch;
+}
+
+.pharm-information__text-decs--text {
+  color: #444752;
+  font-family: Lato, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2.4px;
+}
+
+.pharm-information__about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+}
+
+.pharm-information__about-scinse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.pharm-information__about-scinse--title {
+  color: #444752;
+  font-family: Lato, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3.2px;
+}
+
+.pharm-information__about-basic {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.pharm-information__about-scinse--text {
+  color: #444752;
+  font-family: Lato, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2.4px;
+}
+
+.pharm-information__about-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.pharm-information__about-select--list {
+  color: #444752;
+  font-family: Lato, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2.4px;
+}
+
+
+
+
+
+/*ЧАТ*/
+.sidebar {
+  display: flex;
+  margin-top: 97px;
+  width: 422px;
+  height: 100%;
+  padding: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+  flex-shrink: 0;
+
+  border-right: 1px solid #E0E0E0;
+}
+
+.sidebar-profile {
+  display: flex;
+  padding: 20px 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+
+  border-radius: 15px;
+  background:#f3f4f6;
+}
+
+.sidebar-profile__avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.sidebar-profile__name {
+  display: flex;
+  padding: 5px 0px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.sidebar-profile__name--text {
+  width: 100%;
+  color: #444752;
+  font-family: Prompt, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px; /* 125% */
+  text-align: center;
+}
+
+.sidebar-profile__edit {
+  width: 100%;
+}
+
+.sidebar-profile__edit--button {
+  display: flex;
+  padding: 10px 18px;
+  align-items: center;
+  gap: 10px;
+  margin: auto;
+  border-radius: 15px;
+  background: #FFF;
+  color: #444752;
+  font-family: Prompt, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px; /* 125% */
+  transition: all ease-in-out 0.2s;
+}
+
+.sidebar-profile__edit--button:hover {
+  background: #e2e8f0;
+  transform: scale(0.95);
+}
+
+.sidebar-chats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.sidebar-chats__title {
+  align-self: stretch;
+  width: 100%;
+  color: #333333;
+  text-align: center;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.sidebar-chats__list {
+  display: flex;
+  padding: 10px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  flex: 1 0 0;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+  align-self: stretch;
+}
+
+.sidebar-chats__list:hover {
+  background: #F3F4F6;
+}
+
+.sidebar-chats__list-user {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.sidebar-chats__list-user__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.sidebar-chats__list-user__content-name {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.sidebar-chats__list-user__content-name--text {
+  color: rgba(25, 25, 25, 0.95);
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px; /* 100% */
+}
+
+.sidebar-chats__list-user__content-message {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.sidebar-chats__list-user__content-message--text {
+  color: rgba(25, 25, 25, 0.60);
+  font-family: Lato, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px; /* 100% */
+}
+
+.sidebar-chats__list-user__date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.sidebar-chats__list-user__date--text {
+  color: rgba(25, 25, 25, 0.60);
+  text-align: center;
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px; /* 114.286% */
+}
+
+.chat {
+  display: flex;
+  width: 772px;
+  margin-top: 97px;
+  height: 89vh;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  flex-shrink: 0;
+  border-right: 1px solid #E0E0E0;
+  background: #FFF;
+  overflow: hidden;
+}
+
+.chat-top-header {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  gap: 25px;
+  align-self: stretch;
+
+  border-bottom: 1px solid #E0E0E0;
+  background: #FFF;
+}
+
+.chat-top-header__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.chat-top-header__title--text {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.chat-top-header__title--text span {
+  color: #444752;
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px; /* 114.286% */
+}
+
+.chat-top-header__title-name {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.chat-top-header__title-name span {
+  color: #444752;
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px; /* 114.286% */
+}
+
+.chat-message {
+  display: flex;
+  padding: 15px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  flex: 1 0 0;
+  align-self: stretch;
+  overflow-y: auto;
+}
+
+.chat-message__send {
+  display: flex;
+  padding: 10px 5px;
+  align-items: flex-end;
+  gap: 15px;
+  align-self: stretch;
+}
+
+.chat-message__send-message {
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 10px;
+  background: #E5E7EB;
+}
+
+.chat-message__send-message span {
+  color: #444752;
+  text-align: center;
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 15px; /* 125% */
+}
+
+.chat-message__send p {
+  color: #333333;
+  font-family: Lato, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px; /* 125% */
+  opacity: 0.3;
+}
+
+.chat-message__response {
+  display: flex;
+  padding: 10px 5px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 15px;
+  align-self: stretch;
+}
+
+.chat-message__response p {
+  color: #333333;
+  font-family: Lato, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px; /* 125% */
+  opacity: 0.3;
+}
+
+.chat-message__response-message {
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: #CFD6FD;
+}
+
+.chat-message__response-message span {
+  color: #444752;
+  text-align: center;
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 15px; /* 125% */
+}
+
+.chat-push {
+  display: flex;
+  padding: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-top: 1px solid #E0E0E0;
+  gap: 10px;
+}
+
+.chat-push input {
+  width: 100%;
+  color: #333333;
+  font-size: 15px;
+  font-weight: 400;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.chat-push button {
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+  padding: 13px;
+  border: 1px solid transparent;
+  border-radius: 15px;
+}
+
+.chat-push button:hover {
+  background: #e5e7eb;
+}
+
+
+
+
+
+
+
+.sidebar-left {
+  width: 380px;
+  height: 90vh;
+  margin-top: 97px;
+  display: inline-flex;
+  padding: 10px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.sidebar-left-conteiner-search {
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+
+  border-radius: 20px;
+  background: #FFF;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.sidebar-left-conteiner-search__search {
+  display: flex;
+  padding: 5px 0;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  align-self: stretch;
+}
+
+.sidebar-left-conteiner-search__search-field {
+  display: flex;
+  position: relative;
+  padding: 5px 0;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  align-self: stretch;
+}
+
+.sidebar-left-conteiner-search__search-field--img {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+
+.sidebar-left-conteiner-search__search-field--input {
+  display: flex;
+  width: 250px;
+  padding: 9px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #333333;
+
+  border-radius: 15px;
+  border: 2px solid #8640F9;
+}
+
+.sidebar-left-conteiner-search__search-field--button {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 15px;
+  background: #8640F9;
+
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  transition: all ease-in-out 0.2s;
+}
+
+.sidebar-left-conteiner-search__search-field--button:hover {
+  background: #583fcc;
+}
+
+.sidebar-left-conteiner-search__filter {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+
+  border-radius: 10px;
+  border: 1px solid #DFDFDF;
+  background: #FFF;
+}
+
+.sidebar-left-conteiner-search__filter-star {
+  display: flex;
+  padding: 5px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  border-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+}
+
+.sidebar-left-conteiner-search__filter-star:hover {
+  background: #E5E7EB;
+}
+
+.sidebar-left-conteiner-search__filter-star--text {
+  color: #979797;
+  text-align: center;
+  font-family: Lato, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.medicament {
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+
+  border-radius: 20px;
+  background: #FFF;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.medicament-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.medicament-content__title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.medicament-content__title h3 {
+  color: #333;
+  text-align: center;
+  font-family: Lato, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  flex: 1 0 0;
+}
+
+.medicament-content__data {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.medicament-content__data p {
+  flex: 1 0 0;
+  color: #6B6B6B;
+  font-family: Lato, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.medicament-content__price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.medicament-content__price-cost {
+  display: flex;
+  padding: 5px 0;
+  align-items: flex-end;
+}
+
+.medicament-content__price-cost p {
+  color: #333333;
+  display: flex;
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  gap: 5px;
+}
+
+.medicament-content__price-cost h3 {
+  color: #333;
+  font-family: Lato, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.medicament-content__price--button {
+  display: flex;
+  padding: 5px 15px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  background: #ED6C6C;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+
+  color: #FFF;
+  text-align: center;
+  font-family: Lato, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+}
+
+.medicament-content__price--button:hover {
+  background: #ef4444;
 }

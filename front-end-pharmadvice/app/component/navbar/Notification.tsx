@@ -7,7 +7,7 @@ const Notification = () => {
 		<div>
 			<Image
 				alt="Notification"
-				className="hidden md:block ml-auto mr-[20px] cursor-pointer"
+				className="hidden md:block cursor-pointer"
 				height="30"
 				width="30"
 				src="/images/notification.svg"
