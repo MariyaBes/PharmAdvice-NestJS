@@ -2,26 +2,34 @@ import React, { FC, useEffect, useRef } from 'react';
 
 interface YandexMapProps {
 	ymaps: any;
-	initMap: () => void;
+	pharmacies: { id: number; name: string; coordinates: number[] }[];
 }
 
-const YandexMap: FC<YandexMapProps> = ({ ymaps, initMap }) => {
+const YandexMap: FC<YandexMapProps> = ({ ymaps, pharmacies  }) => {
 	const mapContainerRef = useRef<HTMLDivElement | null>(null);
 	const mapInitialized = useRef(false);
 
 	useEffect(() => {
-		// Проверяем, была ли карта уже инициализирована
 		if (!mapInitialized.current && ymaps && ymaps.ready && mapContainerRef.current) {
 			ymaps.ready(() => {
-				// Проверяем, была ли карта уже инициализирована еще раз (другим компонентом, например)
-				if (!mapInitialized.current) {
-					// Если нет, инициализируем карту и устанавливаем флаг
-					initMap();
-					mapInitialized.current = true;
-				}
+				const map = new ymaps.Map(mapContainerRef.current, {
+					center: [44.93979, 34.09134],
+					zoom: 15,
+				});
+
+				pharmacies.forEach((pharmacy) => {
+					const placemark = new ymaps.Placemark(pharmacy.coordinates, {
+						hintContent: pharmacy.name,
+						balloonContent: pharmacy.name,
+					});
+
+					map.geoObjects.add(placemark);
+				});
+
+				mapInitialized.current = true;
 			});
 		}
-	}, [ymaps, initMap]);
+	}, [ymaps, pharmacies]);
 
 	return <div ref={mapContainerRef} id='map' style={{ width: '100%', height: '862px' }} className='mt-[97px]'></div>;
 };
