@@ -7,4 +7,5 @@ export interface IPharmacist {
 	password: string
 	contact?: string
 	raiting?: number
+	images: string
 }

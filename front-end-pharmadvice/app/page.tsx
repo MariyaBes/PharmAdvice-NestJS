@@ -33,9 +33,9 @@ const Home = () => {
 
             <h1 className='font-semibold text-[#333333] text-[22px] antialiased tracking-[2.4px]'>Упрощаем взаимодействие с аптекой</h1>
 
-            <h1 className='font-semibold text-base tracking-[0.075rem] text-[#333333] text-justify'>Сервис для <a className='text-[#ED6C6C]'>онлайн-консультаций</a> с фармацевтом и хранения <a className='text-[#ED6C6C]'>электронных рецептов</a>.</h1>
+            <h1 className='font-semibold text-base tracking-[0.075rem] text-[#333333] text-justify'>Сервис для <a className='text-[#ED6C6C]'>онлайн-консультаций</a> с фармацевтом и поиском <a className='text-[#ED6C6C]'>лекарственных препаратов на карте</a>.</h1>
 
-            <h2 className='text-sm text-[#333333] font-medium font-["Lato"] tracking-[0.02em] text-justify'>Проводите конференции и онлайн-чаты по любым вопросам с лучшим фармацевтом вашего города! Сохраняйте выписанные электронные рецепты, сравнивайте цены и смотрите их наличие в ближайших аптеках.</h2>
+            <h2 className='text-sm text-[#333333] font-medium font-["Lato"] tracking-[0.02em] text-justify'>Проводите конференции и онлайн-чаты по любым вопросам с лучшим фармацевтом вашего города! Смотрите по карте нужный препарат, сравнивайте цены и смотрите их наличие в ближайших аптеках.</h2>
 
             <ButtonMain title={'Узнать больше!'}/>
           </div>

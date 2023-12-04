@@ -1,32 +1,24 @@
 import Image from 'next/image'
 import { FC } from 'react'
-import { IPharmacist } from '@/app/types/pharmacist.interface'
 import Link from 'next/link'
 import StartChat from '@/app/(pharmacists)/pharmacist/components/button/StartChat'
 import LikesIcon from '@/app/(pharmacists)/pharmacist/components/button/LikesIcon'
 import CommentIcon from '@/app/(pharmacists)/pharmacist/components/button/CommentIcon'
 import GPS from '@/app/(pharmacists)/pharmacist/components/button/GPS'
+import { IPharmacist } from '@/app/types/pharmacist.interface'
 
-const CartPharmacist: FC<IPharmacist> = ({
-																								full_name,
-																								email,
-																								pharmacist_id,
-																								qualification,
-																								contact,
-																					 password,
-																								raiting
-																							}) => {
+const CartPharmacist: FC<{pharmacist: IPharmacist}> = ({pharmacist}) => {
 
 	return (
 		<div className='cart-container'>
 
 			<div className='cart-container-photo'>
-
+				<img src={pharmacist.images} alt='Your Image' />
 			</div>
 
 			<div className='cart-container-information'>
 				<div className='cart-container-information__name'>
-					<span className='cart-container-information__name--text'>{ full_name }</span>
+					<span className='cart-container-information__name--text'>{ pharmacist.full_name }</span>
 				</div>
 
 				<div className='cart-container-information__info'>
