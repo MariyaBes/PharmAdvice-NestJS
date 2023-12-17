@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import '@/app/assets/style/globals.css'
+import { FC } from 'react'
+import { IPharmacist } from '@/app/types/pharmacist.interface'
 
-const LikesIcon = () => {
+const LikesIcon: FC<{raiting: number | undefined}> = ({raiting}) => {
 	return (
 		<div className='cart-container-information__down-event__raiting-likes'>
 			<Image
@@ -12,7 +14,7 @@ const LikesIcon = () => {
 				className={'cart-container-information__down-event__raiting-likes--image'}
 			/>
 
-			<span className='cart-container-information__down-event__raiting-likes--number'>569</span>
+			<span className='cart-container-information__down-event__raiting-likes--number'>{raiting}</span>
 		</div>
 	)
 }

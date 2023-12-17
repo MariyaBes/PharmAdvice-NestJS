@@ -8,4 +8,6 @@ export interface IPharmacist {
 	contact?: string
 	raiting?: number
 	images: string
+	stage?: number
+	reviews?: number
 }

@@ -7,7 +7,9 @@ import CommentIcon from '@/app/(pharmacists)/pharmacist/components/button/Commen
 import GPS from '@/app/(pharmacists)/pharmacist/components/button/GPS'
 import { IPharmacist } from '@/app/types/pharmacist.interface'
 
-const CartPharmacist: FC<{pharmacist: IPharmacist}> = ({pharmacist}) => {
+// @ts-ignore
+const CartPharmacist: FC<{ pharmacist: IPharmacist }> = ({ pharmacist }) => {
+
 
 	return (
 		<div className='cart-container'>
@@ -22,9 +24,9 @@ const CartPharmacist: FC<{pharmacist: IPharmacist}> = ({pharmacist}) => {
 				</div>
 
 				<div className='cart-container-information__info'>
-					<span className='cart-container-information__info--text'><span className='cart-container-information__info--text-purple'>Стаж:</span> 7 лет</span>
-					<span className='cart-container-information__info--text'><span className='cart-container-information__info--text-purple'>Email:</span> natali.l@gmail.com</span>
-					<span className='cart-container-information__info--text'><span className='cart-container-information__info--text-purple'>Адрес:</span> ул.Кирова. 63</span>
+					<span className='cart-container-information__info--text'><span className='cart-container-information__info--text-purple'>Стаж:</span> {pharmacist.stage} лет</span>
+					<span className='cart-container-information__info--text'><span className='cart-container-information__info--text-purple'>Email:</span> {pharmacist.email}</span>
+					<span className='cart-container-information__info--text'><span className='cart-container-information__info--text-purple'>Контакты:</span> { pharmacist.contact }</span>
 				</div>
 
 				<GPS />
@@ -33,9 +35,9 @@ const CartPharmacist: FC<{pharmacist: IPharmacist}> = ({pharmacist}) => {
 
 					<div className='cart-container-information__down-event__raiting'>
 
-						<LikesIcon />
+						<LikesIcon raiting={pharmacist.raiting}/>
 
-						<CommentIcon />
+						<CommentIcon 	reviews={pharmacist.reviews}/>
 
 					</div>
 
@@ -44,7 +46,21 @@ const CartPharmacist: FC<{pharmacist: IPharmacist}> = ({pharmacist}) => {
 						<StartChat />
 
 						<div className='cart-container-information__down-event__action-more'>
-							<Link href={'/pharmacist/1'} >
+							<Link
+								href={{
+									pathname: `/pharmacist/${pharmacist.pharmacist_id}`,
+									query: {
+										full_name: pharmacist.full_name,
+										email: pharmacist.email,
+										contact: pharmacist.contact,
+										raiting: pharmacist.raiting,
+										reviews: pharmacist.reviews,
+										stage: pharmacist.stage,
+										qualification: pharmacist.qualification,
+										images: pharmacist.images
+									}
+								}}
+							>
 								<span className='cart-container-information__down-event__action-more--text'>Узнать больше</span>
 							</Link>
 						</div>

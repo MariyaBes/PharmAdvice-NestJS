@@ -26,7 +26,6 @@ const queryClient = new QueryClient({
   }
 })
 
-
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">

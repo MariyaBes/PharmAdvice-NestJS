@@ -1,3 +1,5 @@
+'use client';
+
 import { Metadata } from 'next'
 import React, { FC } from 'react'
 import Footer from '@/app/component/footer/Footer'
@@ -7,13 +9,22 @@ import GPS from '@/app/(pharmacists)/pharmacist/components/button/GPS'
 import LikesIcon from '@/app/(pharmacists)/pharmacist/components/button/LikesIcon'
 import CommentIcon from '@/app/(pharmacists)/pharmacist/components/button/CommentIcon'
 import Image from 'next/image'
-
-export const metadata: Metadata = ({
-	title: 'Фармацевт | PharmAdvice',
-	description: 'Фармацевт',
-} as const);
+import { useSearchParams } from 'next/navigation'
 
 const DynamicPharmacist = () => {
+	const searchParams = useSearchParams();
+
+	const pharmacist_id = searchParams.get('pharmacist_id');
+	const full_name = searchParams.get('full_name');
+	const email = searchParams.get('email');
+	const contact = searchParams.get('contact');
+	const raiting = searchParams.get('raiting');
+	const qualification = searchParams.get('qualification');
+	const images = searchParams.get('images');
+	const reviews = searchParams.get('reviews');
+	const stage = searchParams.get('stage')
+
+	// @ts-ignore
 	return (
 		<>
 			<Navbar/>
@@ -22,7 +33,7 @@ const DynamicPharmacist = () => {
 
 				<div className='phamr-content'>
 					<div className='phamr-content__photo'>
-
+						<img src={images} alt='Your Image' className='object-cover w-full h-full rounded-2xl'/>
 					</div>
 
 					<div className='phamr-content__cart-info'>
@@ -30,21 +41,21 @@ const DynamicPharmacist = () => {
 						<div className='phamr-content__cart-info__information'>
 
 							<div className='phamr-content__cart-info__information-name'>
-								<p className='phamr-content__cart-info__information-name--text'>Лебедева Наталья Андреевна</p>
+								<p className='phamr-content__cart-info__information-name--text'>{ full_name }</p>
 							</div>
 
 							<span className='phamr-content__cart-info__information--line'></span>
 
 							<div className='phamr-content__cart-info__information-speciality'>
-								<p className='phamr-content__cart-info__information-speciality--text'>Консультант-фармацевт </p>
-								<p className='phamr-content__cart-info__information-speciality--text'>Стаж работы: 16 лет</p>
+								<p className='phamr-content__cart-info__information-speciality--text'>{ qualification } </p>
+								<p className='phamr-content__cart-info__information-speciality--text'>Стаж работы: {stage} лет</p>
 							</div>
 
 							<span className='phamr-content__cart-info__information--line'></span>
 
 							<div className='phamr-content__cart-info__information-contact'>
-								<p className='phamr-content__cart-info__information-contact--text'><span className='phamr-content__cart-info__information-contact--text-purp'>Рабочий телефон: </span> +79784567893</p>
-								<p className='phamr-content__cart-info__information-contact--text'><span className='phamr-content__cart-info__information-contact--text-purp'>Email:</span> moroz.y.v@gmail.com</p>
+								<p className='phamr-content__cart-info__information-contact--text'><span className='phamr-content__cart-info__information-contact--text-purp'>Рабочий телефон: </span> { contact }</p>
+								<p className='phamr-content__cart-info__information-contact--text'><span className='phamr-content__cart-info__information-contact--text-purp'>Email:</span> {email}</p>
 							</div>
 
 							<GPS />
@@ -55,8 +66,8 @@ const DynamicPharmacist = () => {
 							<div className='phamr-content__cart-info__active-event'>
 
 								<div className='phamr-content__cart-info__active-event--icons'>
-									<LikesIcon />
-									<CommentIcon />
+									<LikesIcon raiting={raiting}/>
+									<CommentIcon reviews={reviews}/>
 								</div>
 
 								<StartChat />

@@ -4,7 +4,7 @@ import Navbar from '@/app/component/navbar/Navbar'
 import Search from '@/app/(pharmacists)/pharmacist/components/Search'
 import CartPharmacist from '@/app/(pharmacists)/pharmacist/components/CartPharmacist'
 import Footer from '@/app/component/footer/Footer'
-import React, { useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { IPharmacist } from '@/app/types/pharmacist.interface'
 
 
@@ -19,6 +19,8 @@ const Pharmacist =() => {
 			password: 'qwerty123',
 			contact: '111-222-3333',
 			raiting: 143,
+			stage: 7,
+			reviews: 89,
 			images: "/imgPharmacist/photo.png"
 		},
 		{
@@ -30,7 +32,9 @@ const Pharmacist =() => {
 			password: 'qwerty123',
 			contact: '987-654-3210',
 			raiting: 462,
-			images: "/imgPharmacist/photo.png"
+			stage: 4,
+			reviews: 109,
+			images: "/imgPharmacist/photo-woman.jpg"
 		},
 		{
 			pharmacist_id: 3,
@@ -41,6 +45,8 @@ const Pharmacist =() => {
 			password: 'qwerty123',
 			contact: '999-000-2222',
 			raiting: 77,
+			stage: 12,
+			reviews: 66,
 			images: "/imgPharmacist/photo-men1.png"
 		},
 		{
@@ -52,7 +58,9 @@ const Pharmacist =() => {
 			password: 'qwerty123',
 			contact: '888-777-6666',
 			raiting: 310,
-			images: "/imgPharmacist/photo.png"
+			stage: 3,
+			reviews: 112,
+			images: "/imgPharmacist/photo-woman1.jpg"
 		},
 		{
 			pharmacist_id: 5,
@@ -63,6 +71,8 @@ const Pharmacist =() => {
 			password: 'qwerty123',
 			contact: '666-999-1111',
 			raiting: 49,
+			stage: 8,
+			reviews: 74,
 			images: "/imgPharmacist/photo-men2.png"
 		},
 		{
@@ -74,7 +84,9 @@ const Pharmacist =() => {
 			password: 'qwerty123',
 			contact: '444-333-2222',
 			raiting: 235,
-			images: "/imgPharmacist/photo.png"
+			stage: 16,
+			reviews: 193,
+			images: "/imgPharmacist/photo-woman2.jpg"
 		},
 		{
 			pharmacist_id: 7,
@@ -85,48 +97,59 @@ const Pharmacist =() => {
 			password: 'qwerty123',
 			contact: '777-888-9999',
 			raiting: 189,
-			images: "/imgPharmacist/photo.png"
-		},
-		{
-			pharmacist_id: 8,
-			full_name: 'Петр Петров',
-			gender: 'Мужской',
-			qualification: 'Фармацевт',
-			email: 'petr.petrov@example.com',
-			password: 'qwerty123',
-			contact: '555-555-5555',
-			raiting: 201,
-			images: "/imgPharmacist/photo.png"
-		},
-		{
-			pharmacist_id: 9,
-			full_name: 'Иван Иванов',
-			gender: 'Мужской',
-			qualification: 'Фармацевт',
-			email: 'ivan.ivanov@example.com',
-			password: 'qwerty123',
-			contact: '123-456-7890',
-			raiting: 434,
-			images: "/imgPharmacist/photo.png"
+			stage: 10,
+			reviews: 59,
+			images: "/imgPharmacist/photo-man3.jpg"
 		}
 	])
 
+	const [searchQuery, setSearchQuery] = useState<string>('')
+	const [originalList, setOriginalList] = useState<IPharmacist[]>([...pharmacists])
 
+	const sortPriceDown = () => {
+		const sortedData = [...pharmacists].sort((a,b) => b.raiting - a.raiting)
+		setPharmacists(sortedData)
+	}
+
+	const sortPriceUp = () => {
+		const sortedData = [...pharmacists].sort((a,b) => b.stage - a.stage)
+		setPharmacists(sortedData)
+	}
+
+	const searchQueryInput = (e: ChangeEvent<HTMLInputElement>) => {
+		setSearchQuery(e.target.value)
+	}
+
+	const valueSearch = () => {
+		const filterData = originalList.filter((pharmacist) =>
+			pharmacist.full_name.toLowerCase().includes(searchQuery.toLowerCase())
+		);
+
+		setPharmacists(filterData);
+	};
+
+	useEffect(() => {
+		setOriginalList([...pharmacists]);
+	}, [pharmacists]);
+
+	// @ts-ignore
 	return (
 		<>
 			<Navbar/>
 
 			<div className='flex flex-col max-w-full mx-auto xl:px-[365px] md:px-10 sm:px-2 px-4 min-h-full mb-14'>
 
-				<Search />
+				<Search sortPriceDown={sortPriceDown} sortPriceUp={sortPriceUp} searchQueryInput={searchQueryInput} valueSearch={valueSearch}
+								searchQuery={searchQuery}/>
 
 				{pharmacists.map((pharmacist) => (
-					<CartPharmacist key={pharmacist.pharmacist_id} pharmacist={pharmacist}/>
-				))
-				}
+					<CartPharmacist
+						key={pharmacist.pharmacist_id}
+						pharmacist={{ ...pharmacist }}
+					/>
+				))}
 
 			</div>
-
 
 			<Footer />
 		</>

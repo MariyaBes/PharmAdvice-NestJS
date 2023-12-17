@@ -22,7 +22,7 @@ export const AuthService = {
 	},
 	async getNewToken() {
 		//Получаем значение refresh-токена из куки
-		const refreshToken = Cookies.get('refresh-token')
+		const refreshToken = Cookies.get('refreshToken')
 
 		const response = await axios.post<string, {
 			data: IAuthResponse

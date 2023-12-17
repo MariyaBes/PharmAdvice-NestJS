@@ -3,6 +3,7 @@ import SendMessage from '@/app/chat/components/messages/SendMessage'
 import ResponseMessage from '@/app/chat/components/messages/ResponseMessage'
 
 const ChatForm = () => {
+
 	return (
 		<div className='chat'>
 			<div className='chat-top-header'>

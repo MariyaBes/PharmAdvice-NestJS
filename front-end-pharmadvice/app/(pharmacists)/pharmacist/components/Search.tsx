@@ -1,6 +1,14 @@
 import Image from 'next/image'
 
-const Search = () => {
+const Search = ({
+									valueSearch,
+									sortPriceDown,
+									sortPriceUp,
+									searchQueryInput,
+									searchQuery
+								}) => {
+
+	console.log(valueSearch, searchQueryInput, searchQuery)
 	return (
 		<div className='conteiner-search'>
 
@@ -15,18 +23,24 @@ const Search = () => {
 						alt={'Search'}
 						width={'20'}
 						height={'20'}
+
 					/>
 				</div>
-				<input className={'conteiner-search__search-field--input'} placeholder={'Поиск фармацевта... '}/>
+				<input
+					className={'conteiner-search__search-field--input'}
+					placeholder={'Поиск фармацевта... '}
+					onChange={searchQueryInput}
+					value={searchQuery}
+				/>
 
-				<button className='conteiner-search__search-field--button'>
+				<button className='conteiner-search__search-field--button' onClick={valueSearch}>
 					Поиск
 				</button>
 
 			</div>
 
 			<div className='conteiner-search__filters'>
-				<div className='conteiner-search__filters-star'>
+				<div className='conteiner-search__filters-star' onClick={sortPriceDown}>
 					<Image
 						className='conteiner-search__filters-star--icon'
 						src='/images/arrangevertical.svg'
@@ -40,7 +54,7 @@ const Search = () => {
 
 				</div>
 
-				<div className='conteiner-search__filters-star'>
+				<div className='conteiner-search__filters-star' onClick={sortPriceUp}>
 					<Image
 						className='conteiner-search__filters-star--icon'
 						src='/images/candle2.svg'

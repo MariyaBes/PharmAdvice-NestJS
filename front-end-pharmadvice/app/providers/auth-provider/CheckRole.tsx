@@ -3,13 +3,11 @@ import { TypeComponentAuthFields } from '@/app/providers/auth-provider/auth-page
 import { useAuth } from '@/app/hooks/useAuth'
 import { useRouter } from 'next/router'
 
-
 const CheckRole: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 	Component: {
 		isOnlyUser
 	}, children }) => {
 	const { user } = useAuth()
-
 	const router = useRouter()
 
 	if(user && isOnlyUser) {
@@ -21,3 +19,4 @@ const CheckRole: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 }
 
 export default CheckRole;
+

@@ -11,6 +11,7 @@ import { IEmailPassword } from '@/app/store/user/user.interface'
 import { validEmail } from '@/app/auth/valid-email'
 import Loader from '@/app/component/Loader'
 import { useAuthRedirect } from '@/app/auth/useAuthRedirect'
+import { toast, Toaster } from 'react-hot-toast'
 
 const AuthForm = () => {
 	useAuthRedirect()
@@ -30,10 +31,12 @@ const AuthForm = () => {
 	})
 
 	const onSubmit: SubmitHandler<IEmailPassword> = async (data, event) => {
+		try {
 			if (type === 'login') {
 				login(data)
 			} else {
 				register(data)
+
 			}
 
 			if (rememberMe) {
@@ -43,6 +46,10 @@ const AuthForm = () => {
 			}
 
 			reset();
+		} catch (error) {
+			toast.error('Ошибка регистрации. Пользователь уже существует.');
+		}
+
 	};
 
 	const handleRememberMeChange = (isChecked: boolean) => {
@@ -51,6 +58,7 @@ const AuthForm = () => {
 
 	return (
 		<div className='flex flex-col justify-center min-h-max w-[520px] bg-white rounded-3xl shadow-md items-center m-auto content-evenly z-10'>
+			<Toaster />
 
 			<div className='mb-6'>
 				<h1 className='flex text-xl font-bold font-["Lato"] tracking-wide mb-1 p-1 pt-12 w-[315px] ml-1'>
@@ -66,18 +74,6 @@ const AuthForm = () => {
 					<Loader/>
 				) : (
 					<>
-						{ type === 'register' && (
-							<InputAuth
-								id="name"
-								type="name"
-								placeholder ='ФИО...'
-								{...formRegister('name', {
-									required: 'Обязательное поле: ФИО',
-								})}
-								error={errors.name?.message}
-							/>
-						)}
-
 						<InputAuth
 							id="email"
 							type="email"
@@ -120,13 +116,13 @@ const AuthForm = () => {
 
 						<div className="flex gap-2 justify-center text-sm mt-2 mb-8 px-2 text-[#9F9F9F] font-['Lato']">
 							<div>
-								Нет учетной записи?
+								{type === 'login' ? 'Нет учетной записи?' : 'Уже есть аккаутн?'}
 							</div>
 							<a
 								className="text-[#8640F9] cursor-pointer border border-transparent hover:border-b-[#8640F9] transform-all"
 								onClick={() => setType(type === 'login' ? 'register' : 'login')}
 							>
-								Создать аккаунт
+								{type === 'login' ? 'Создать аккаунт' : 'Войти в аккаутн'}
 							</a>
 						</div>
 

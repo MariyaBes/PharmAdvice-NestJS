@@ -1,7 +1,8 @@
 import '@/app/assets/style/globals.css'
 import Image from 'next/image'
 
-const CommentIcon = () => {
+// @ts-ignore
+const CommentIcon = ({reviews}) => {
 	return (
 		<div className='cart-container-information__down-event__raiting-comment'>
 			<Image
@@ -12,7 +13,7 @@ const CommentIcon = () => {
 				className={'cart-container-information__down-event__raiting-comment--image'}
 			/>
 
-			<span className='cart-container-information__down-event__raiting-likes--number'>158 Отзыв</span>
+			<span className='cart-container-information__down-event__raiting-likes--number'>{reviews} Отзыв</span>
 		</div>
 	)
 }

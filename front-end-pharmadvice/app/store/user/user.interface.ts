@@ -25,3 +25,4 @@ export interface IEmailPassword {
 export interface IAuthResponse extends ITokens {
 	user: IUser
 }
+

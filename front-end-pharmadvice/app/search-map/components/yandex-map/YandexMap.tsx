@@ -33,5 +33,4 @@ const YandexMap: FC<YandexMapProps> = ({ ymaps, pharmacies  }) => {
 
 	return <div ref={mapContainerRef} id='map' style={{ width: '100%', height: '862px' }} className='mt-[97px]'></div>;
 };
-
 export default YandexMap;
