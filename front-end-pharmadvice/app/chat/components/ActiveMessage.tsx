@@ -6,11 +6,11 @@ const ActiveMessage = () => {
 		<div className='sidebar-chats__list'>
 			<div className='sidebar-chats__list-user'>
 				<Image
-					src={'/upload/photo-men1.png'}
-					alt={'Мужик'}
+					src='/imgPharmacist/photo-woman.jpg'
+					alt={'Женщина'}
 					width={'40'}
 					height={'40'}
-					className='rounded-full flex justify-center items-center'
+					className='rounded-full flex justify-center items-center w-[40px] h-[40px] object-cover'
 				/>
 
 				<div className='sidebar-chats__list-user__content'>

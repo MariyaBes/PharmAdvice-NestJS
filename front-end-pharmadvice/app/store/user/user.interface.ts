@@ -1,6 +1,7 @@
 import { IUser } from '@/app/types/user.interface'
 
 export interface IUserState {
+	name?: string
 	email: string
 	isAdmin: boolean
 	avatarPath?: string
@@ -17,7 +18,7 @@ export interface IInitialState {
 }
 
 export interface IEmailPassword {
-	name: string
+	name?: string
 	email: string
 	password: string
 }

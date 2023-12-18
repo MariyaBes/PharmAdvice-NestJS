@@ -9,11 +9,11 @@ const ChatForm = () => {
 			<div className='chat-top-header'>
 
 				<Image
-					src={'/upload/photo-men1.png'}
+					src={'/imgPharmacist/photo-woman.jpg'}
 					alt={'MEn'}
 					width={'95'}
 					height={'95'}
-					className='rounded-full'
+					className='rounded-full flex justify-center items-center w-[60px] h-[60px] object-cover'
 				/>
 
 				<div className='chat-top-header__title'>
@@ -21,7 +21,7 @@ const ChatForm = () => {
 						<span>Чат с формацевтом:</span>
 					</div>
 					<div className='chat-top-header__title-name'>
-						<span>Михаил Сергеевич С.</span>
+						<span>Лебедева Наталья Андреевна</span>
 					</div>
 				</div>
 
@@ -32,23 +32,6 @@ const ChatForm = () => {
 				<SendMessage/>
 				<ResponseMessage />
 
-				<SendMessage/>
-				<ResponseMessage />
-
-				<SendMessage/>
-				<ResponseMessage />
-
-				<SendMessage/>
-				<ResponseMessage />
-
-				<SendMessage/>
-				<ResponseMessage />
-
-				<SendMessage/>
-				<ResponseMessage />
-
-				<SendMessage/>
-				<ResponseMessage />
 			</div>
 
 			<div className='chat-push'>

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Image from "next/image";
 import ActiveMessage from '@/app/chat/components/ActiveMessage'
 
 const Sidebar = () => {
+
 	return(
 		<div className='sidebar'>
 			<div className='sidebar-profile'>
@@ -18,7 +19,7 @@ const Sidebar = () => {
 
 				<div className='sidebar-profile__name'>
 					<h3 className='sidebar-profile__name--text'>
-						Александрова Александра Александровна
+						Бессарабенко Мария Романовна
 					</h3>
 				</div>
 
@@ -41,8 +42,6 @@ const Sidebar = () => {
 					Активные диалоги
 				</h2>
 
-				<ActiveMessage />
-				<ActiveMessage />
 				<ActiveMessage />
 
 			</div>
